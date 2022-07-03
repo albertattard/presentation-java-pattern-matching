@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(18)
+    }
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter('5.9.0-M1')
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile.class).configureEach {
+    options.compilerArgs.add('--enable-preview')
+    options.compilerArgs.add('-Xlint:preview')
+    options.release.set(18)
+}
+
+tasks.withType(Test.class).configureEach {
+    jvmArgs.add('--enable-preview')
+}
+
+tasks.withType(JavaExec.class).configureEach {
+    jvmArgs.add('--enable-preview')
+}

@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(18)
+    }
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter('5.9.0-M1')
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
