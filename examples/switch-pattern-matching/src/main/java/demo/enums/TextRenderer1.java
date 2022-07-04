@@ -8,14 +8,10 @@ public class TextRenderer1 {
         }
 
         switch (operator) {
-            case ADD:
-                return "+";
-            case SUBTRACT:
-                return "-";
-            case MULTIPLY:
-                return "×";
-            case DIVIDE:
-                return "÷";
+            case ADD:      return "+";
+            case SUBTRACT: return "-";
+            case MULTIPLY: return "×";
+            case DIVIDE:   return "÷";
         }
 
         throw new RuntimeException("Unknown operator");

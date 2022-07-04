@@ -12,26 +12,39 @@ public class Employee {
         this.name = name;
     }
 
-//    @Override
-//    public boolean equals(final Object object) {
-//        if (this == object) {
-//            return true;
-//        }
-//
-//        if (object instanceof Employee) {
-//            final Employee employee = (Employee) object;
-//            return id == employee.id && Objects.equals(name, employee.name);
-//        }
-//
-//        return false;
-//    }
+    // @Override
+    // public boolean equals(final Object object) {
+    //     if (this == object) {
+    //         return true;
+    //     }
+    //
+    //     if (object instanceof Employee) {
+    //         final Employee employee = (Employee) object;
+    //         return id == employee.id && Objects.equals(name, employee.name);
+    //     }
+    //
+    //     return false;
+    // }
+
+//   @Override
+//   public boolean equals(final Object object) {
+//       return this == object
+//               || object instanceof Employee employee
+//               && id == employee.id
+//               && Objects.equals(name, employee.name);
+//   }
 
     @Override
     public boolean equals(final Object object) {
-        return this == object
-                || object instanceof Employee employee
-                && id == employee.id
-                && Objects.equals(name, employee.name);
+        if (this == object) {
+            return true;
+        }
+
+        if (!(object instanceof Employee employee)) {
+            return false;
+        }
+
+        return id == employee.id && Objects.equals(name, employee.name);
     }
 
     @Override
